@@ -1,0 +1,49 @@
+baseurl = "https://dataninja.fi"
+relativeurls = true
+copyright = "&copy; 2017 Risto Kaartinen"
+languageCode = "en-us"
+title = "Data Ninja"
+enableEmoji = true
+theme = "beautifulhugo"
+metaDataFormat = "yaml"
+googleAnalytics = "UA-101946229-1"
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+year = "2017"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+[[menu.main]]
+    name = "Cheatsheet"
+    url = "/cheatsheet/"
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/rstudio/blogdown"
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/dataninjafi"
+
+[author]
+    name = "Risto Kaartinen"
+    twitter = "dataninjafi"
+    email = "risto.kaartinen@gmail.com"
+    linkedin = "ristokaartinen"
+
+
+[params]
+    subtitle = "Data Ninja fights messy data"
+    logo = "img/dataninja2.png"
+    description = "Data Ninja fights messy data"
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
