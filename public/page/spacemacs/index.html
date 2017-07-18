@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Spacemacs cheatsheet</title>
+  <meta property="og:title" content="Spacemacs cheatsheet" />
+  <meta name="twitter:title" content="Spacemacs cheatsheet" />
+  <meta name="description" content="Major insiration for this page: https://github.com/TheBB/spacemacs-layers/blob/master/init.el https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
+emacs --daemon to run in the background.
+STUFF  Undo - C-/ Redo - C-? Replace contents of buffer with the contents of the clipboard: M-m b P Erase contents of buffer: SPC b e Copy contents of the whole buffer: M-m b Y Iedit mode: edit multiple occurences. SPC s e Expand Region. SPC v expand with v contract V Winner mode: 1.">
+  <meta property="og:description" content="Major insiration for this page: https://github.com/TheBB/spacemacs-layers/blob/master/init.el https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
+emacs --daemon to run in the background.
+STUFF  Undo - C-/ Redo - C-? Replace contents of buffer with the contents of the clipboard: M-m b P Erase contents of buffer: SPC b e Copy contents of the whole buffer: M-m b Y Iedit mode: edit multiple occurences. SPC s e Expand Region. SPC v expand with v contract V Winner mode: 1.">
+  <meta name="twitter:description" content="Major insiration for this page: https://github.com/TheBB/spacemacs-layers/blob/master/init.el https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
+emacs --daemon to run in the background.
+STUFF …">
+  <meta name="author" content="Risto Kaartinen"/>
+  <meta property="og:image" content="/img/dataninja2.png" />
+  <meta name="twitter:image" content="/img/dataninja2.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dataninjafi" />
+  <meta name="twitter:creator" content="@dataninjafi" />
+  <meta property="og:url" content="/page/spacemacs/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Data Ninja" />
+
+  <meta name="generator" content="Hugo 0.24.1" />
+  <link rel="canonical" href="../../page/spacemacs/" />
+  <link rel="alternate" href="../../index.xml" type="application/rss+xml" title="Data Ninja">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="../../css/pygment_highlights.css" />
+  <link rel="stylesheet" href="../../css/highlight.min.css" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-101946229-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../">Data Ninja</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="../../about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cheatsheet" href="../../cheatsheet/">Cheatsheet</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="GitHub" href="https://github.com/rstudio/blogdown">GitHub</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Twitter" href="https://twitter.com/dataninjafi">Twitter</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Data Ninja" href="../../">
+            <img class="avatar-img" src="../../img/dataninja2.png" alt="Data Ninja" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>Spacemacs cheatsheet</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Major insiration for this page:
+<a href="https://github.com/TheBB/spacemacs-layers/blob/master/init.el">https://github.com/TheBB/spacemacs-layers/blob/master/init.el</a>
+<a href="https://gist.github.com/davoclavo/d41cd86ffda22f1649e4">https://gist.github.com/davoclavo/d41cd86ffda22f1649e4</a></p>
+
+<p><code>emacs --daemon</code> to run in the background.</p>
+
+<h2 id="stuff">STUFF</h2>
+
+<ul>
+<li>Undo - <code>C-/</code></li>
+<li>Redo - <code>C-?</code></li>
+<li>Replace contents of buffer with the contents of the clipboard: <code>M-m b P</code></li>
+<li>Erase contents of buffer: <code>SPC b e</code></li>
+<li>Copy contents of the whole buffer: <code>M-m b Y</code></li>
+<li>Iedit mode: edit multiple occurences. <code>SPC s e</code></li>
+<li>Expand Region. <code>SPC v</code> expand with <code>v</code> contract <code>V</code></li>
+<li>Winner mode: 1. Undo : <code>C-c &lt;left&gt;</code>
+           2. Redo : <code>C-c &lt;right&gt;</code></li>
+<li>Toggle Aggressive Indent Mode : <code>M-m t I</code></li>
+<li>Search : 1. The last searched query : <code>C-s C-s</code>
+       2. The string under the cursor : <code>C-s C-w</code></li>
+<li>Un-indent by 4 spaces : <code>C-u -4 C-x TAB</code></li>
+</ul>
+
+<h2 id="jump-to-file-system">Jump to file system</h2>
+
+<ul>
+<li>Open emacs dired mode: <code>SPC a d</code></li>
+<li>Dired mode : 1. Copy file : <code>C</code>
+           2. Delete the file : <code>D</code>
+           3. Rename the file : <code>R</code>
+           4. Create a new directory : <code>+</code>
+           5. Reload directory listing : <code>g</code></li>
+<li>Open emacs ranger mode: <code>SPC a r</code></li>
+<li>Open current file directory: <code>M-m f j</code></li>
+<li>Rename current file: <code>M-m f R</code></li>
+<li>Indent region/buffer: <code>M-m j =</code></li>
+<li>Kill all buffers (of current project): <code>M-m p k</code></li>
+<li>Reload spacemacs conf: <code>M-m f e R</code></li>
+<li>Kill all buffers except the current one: <code>M-m b K</code></li>
+<li>Go to conf file (~/.spacemacs): <code>M-m f e d</code></li>
+<li>Toggle display fill-column(column 80): <code>M-m t f</code></li>
+<li>Enable/Disable read-only mode <code>C-x C-q</code></li>
+<li>Go one level up in directory: <code>C-x C-j</code></li>
+<li>Indent/unindent region by n/-n spaces(n=4,8,&hellip; usually): <code>C-u &lt;n&gt; C-x TAB</code></li>
+<li>Go to previous cursor position(before ace-jump): <code>M-m SPC</code>`</li>
+<li>Do ag (code search) inside project : <code>M-m s a p</code></li>
+<li>Narrow to function : <code>M-m n f</code> (<code>M-m n w</code> to exit)</li>
+<li>Enable rainbow mode: <code>M-m t C c</code></li>
+<li>Search selected region or current word through ag in project: <code>M-m s p</code></li>
+<li>Highlight search results in another buffer (helm swoop): <code>M-m s s</code> (<code>M-m s s</code> to exit)</li>
+<li>Toggle current frame transparency: <code>M-m T T</code></li>
+<li>Toggle non-matching lines for iedit mode: <code>C-'</code> when in iedit mode (C-;)</li>
+<li>Helm-resume background task: <code>M-m h l</code></li>
+<li>Enter .spacemacs diff mode: <code>M-m f e D</code></li>
+<li>Show kill ring history: <code>M-m r y</code></li>
+<li>When in dired mode, press <code>?</code> to display a list of commands.</li>
+<li>Search within given buffer (helm-swoop mode): <code>M-m s s</code></li>
+<li>List all functions in the given buffer (imenu): <code>M-m s l</code></li>
+</ul>
+
+<p>SPC j w jumps to word
+SPC TAB previous buffer
+SPC ! shell command
+SPC * and SPC / search in project
+SPC NUMBER
+SPC ; comment operator (visual selection, a p paragraph, i i idented text)
+SPC ? a list of helm session keybindings
+SPC ` moves backward
+SPC F1 Fuzzy search of emacs stuff</p>
+
+<ul>
+<li><p>SPC p
+** p find a project
+** f find a file in this project</p></li>
+
+<li><p>SPC a
+** c calculator (q)
+** d Deer (file tree navigator )
+** r Ranger
+** E Emoji
+** o Org
+** p Processes
+** u Undo tree</p></li>
+
+<li><p>SPC b
+** . (Micro state) jump between buffers and kill
+** b
+** C-z actions
+** B IBuffer
+** d delete buffer
+** P copy from clipboard to buffer
+** Y copy to clipboard
+** R revert to data on disk</p></li>
+
+<li><p>SPC c
+** l comment line
+** l comment line invert
+** p comment paragraph
+** P comment paragraph invert
+** t comment to line
+** T comment to line invert</p></li>
+
+<li><p>SPC C
+** c Org capture (SPC aoc)
+** l helm color</p></li>
+
+<li><p>SPC E</p></li>
+
+<li><p>SPC F
+** c copy buffer to a new file name
+** C convert line endings
+** s save buffer
+** D delete file and buffer
+** f find file
+** j jump to directory of file
+** S save all buffers
+** e d go to .spacemacs
+** e f .spacemacs faq
+** e R apply changes in dotfiles
+** e v show and copy spacemacs version
+** e h HELP</p></li>
+
+<li><p>SPC h
+** spc help
+** k which-key toplevel
+** M Helm major mode</p></li>
+
+<li><p>SPC i
+** e emoji
+** j, J, k, K insert empty line or [ SPC or space ]
+** l lorem ipsum text
+** s Helm yasnippets</p></li>
+
+<li><p>SPC j
+** = reident
+** k go to a new line and ident</p></li>
+
+<li><p>spc g
+** . vcs microstate
+** b git blame microstate
+** c commit
+** C checkout
+** d diff
+** D diff head
+** s magit status
+** S/U (un)stage whole file
+** t time machine microstate</p></li>
+
+<li><p>ess layer
+** M {/} move up and down in repl
+** C-c C-c break
+** M n 1 1
+**</p></li>
+
+<li><p>Org mode
+** M arrows &hellip; moves item up, down, demote, promote
+** M RET &hellip; inserts a new heading/list item
+** S arrows &hellip; switch between todo and priority states
+** SPC m - &hellip; changes list style
+** SPC : &hellip; tags
+** SPC , &hellip; ctrl c ctrl c
+** C-c C-z C-a Archive a entry
+** C-c C-z C-a Archive a subtree
+** C-u C-c C-x C-s Serch all done under subtree and archive with prompt
+** col view and archive property:<a href="https://www.youtube.com/watch?v=BeAtCVZpHCg&amp;index=20&amp;list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE">https://www.youtube.com/watch?v=BeAtCVZpHCg&amp;index=20&amp;list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE</a>
+** Tables
+| Nimi            | titteli              | työpaikka |
+|&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&ndash;|
+| Risto Kaartinen | työelämäasiantuntija | Keva      |
+| Joku muu        | johtaja              | Kela      |
+|                 |                      |           |
+** Source code</p></li>
+</ul>
+
+<p>#+BEGIN_SRC R
+mtcars</p>
+
+<p>#+END_SRC</p>
+
+<ul>
+<li>Vim commands
+** Selecting
+*** A paragraph vip
+** Code folding
+*** zm fold
+*** zr open folded</li>
+</ul>
+
+<p>magit
+<a href="https://www.youtube.com/watch?v=OMIxZhLU71U">https://www.youtube.com/watch?v=OMIxZhLU71U</a></p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        
+          <li class="next">
+            <a href="../../page/about/" data-toggle="tooltip" data-placement="top" title="About me">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:risto.kaartinen@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/dataninjafi" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/ristokaartinen" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Risto Kaartinen
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="../../">Data Ninja</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.24.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="../../js/load-photoswipe.js"></script>
+
+
+
+
+  </body>
+</html>
+
