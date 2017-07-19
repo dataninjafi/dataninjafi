@@ -56,6 +56,10 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 * `V` select line
 * `^v` ???
 
+### Indenting
+
+`gg=G` autoindents whole file
+
 ### Operators
 
 * y yank
@@ -67,6 +71,9 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 * `p` paste after cursor
 * `P` paste before cursor
 * `
+
+
+
 ### Exercises
 
 #### Remove quotes around text
@@ -155,6 +162,3 @@ Over a word press `*`
 * `b` searches same in buffers
 * `p` searches same in projects
 
-..We're waiting for content before the site can go live...
-...If you are content with this, let's go ahead with it...
-...We'll launch as soon as we have the content...
