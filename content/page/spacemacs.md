@@ -56,6 +56,10 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 * `V` select line
 * `^v` ???
 
+### Visual block mode
+
+`Ctrl-v` to enter mode. Select lines. `A` to start editing and `ESC` to finish.
+
 ### Indenting
 
 `gg=G` autoindents whole file
