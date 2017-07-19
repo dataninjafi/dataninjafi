@@ -135,15 +135,17 @@ Result is:
 110 This is an item.
 111 This is an item.
 
-100
 
 {  }	beginning of previous, next paragraph
 ( )	beginning of previous, next sentence
 
-*** A paragraph vip
-** Code folding
-*** zm fold
-*** zr open folded
+
+#### Code folding
+
+`zm` fold
+`zr` open folded
+
+## Moving between buffers
 
 ## Calculator
 
