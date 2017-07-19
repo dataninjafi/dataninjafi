@@ -145,3 +145,16 @@ function(arg1, |, arg3)`
 `function(ar|g1, arg2, arg3)
 function(|arg2, arg3)`
 
+## Symbol highlight transient state
+
+Over a word press `*`
+
+* `n` jumps next same word occurence in that file
+* `p`/N jumps back ...
+* `e` starts iedit (edit all occurences)
+* `b` searches same in buffers
+* `p` searches same in projects
+
+..We're waiting for content before the site can go live...
+...If you are content with this, let's go ahead with it...
+...We'll launch as soon as we have the content...
