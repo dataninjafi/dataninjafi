@@ -75,19 +75,31 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 
 `gg=G` autoindents whole file
 
-### Operators
+### operators
 
 * y yank
     * `yy` yank line
 * c change
-    * `C` change end of line
+    * `c` change end of line
     * `cw` change rest of word
     * `ci[w/./)]` change in word/./)
 * `p` paste after cursor
-* `P` paste before cursor
+* `p` paste before cursor
 * `
 
+### Objects
 
+w word
+p paragraph
+a argument
+s sentence
+) parentheses
+} braces
+] brackets
+' single quotes
+" double quotes
+` backticks
+t tag
 
 ### Exercises
 
@@ -132,7 +144,6 @@ Result is:
 ** Code folding
 *** zm fold
 *** zr open folded
--900
 
 ## Calculator
 
