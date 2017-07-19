@@ -162,3 +162,9 @@ Over a word press `*`
 * `b` searches same in buffers
 * `p` searches same in projects
 
+## Pasting transient state
+
+Press `p`` to enter this state.
+
+* `ctrl-j` and `ctrl-k` scroll through kill ring
+* `p` to paste under or `P` before cursor
