@@ -60,6 +60,17 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 
 `Ctrl-v` to enter mode. Select lines. `A` to start editing and `ESC` to finish.
 
+### EX commands
+
+#### Replacing through document
+
+`:%s/^/!/g` to insert ! character on beginning of all lines. Dropping last g will do it to first match. gs would prompt every change
+
+#### Doing same thing for visual selection
+
+`:'<,'>normal I!ENTER`
+
+
 ### Indenting
 
 `gg=G` autoindents whole file
