@@ -101,6 +101,20 @@ s sentence
 ` backticks
 t tag
 
+### Go places
+
+`gf` go to file in same directory
+``.` go to last change`
+``^` go to last insertion
+
+### Strings in storage
+
+`"%` path of current file
+`"#` path of current init.el file
+`".` last inserted text
+`":` last ex command
+`"/` last searh
+
 ### Exercises
 
 #### Remove quotes around text
