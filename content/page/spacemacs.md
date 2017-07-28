@@ -238,10 +238,12 @@ Press `p`` to enter this state.
 
 * `ctrl-j` and `ctrl-k` scroll through kill ring
 * `p` to paste under or `P` before cursor
+
+## Very magic and no magic
+
 ## Substituting
 
-s first line
-%s all lines
+s first line %s all lines
 
 #### Flags
 
