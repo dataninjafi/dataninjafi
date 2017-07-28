@@ -247,3 +247,29 @@ s first line
 `&` apply previously used flags
  fs
 
+## Sorting
+
+`vip:sort`
+
+ö
+ä
+l
+c
+b
+a 
+
+and you get
+
+a 
+b
+c
+l
+ä
+ö
+
+to reverse it use 
+
+* `sort!`
+* `sort u` for removing duplicate rows
+* `sort n` sort using numerical sort
+
