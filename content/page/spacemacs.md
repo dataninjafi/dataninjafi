@@ -115,6 +115,29 @@ t tag
 `":` last ex command
 `"/` last searh
 
+### Macros
+
+`qa` start recording a macro to a register and `q` to stop it
+`@@` play previous macro, after this use `.`
+`qA` append macro in `A`
+
+#### Example macro
+
+If one would like start a row with "var" and end it with ";". Then you could `qaA;<Esc>Ivar<Space><Esc>q`
+
+On a empty line result would be "var ;". A row with "a", would turn into "var a;".
+
+If I would like to use this macro for multiple lines. I could call it from other macro eg. `qb@aj^q` or could just append movement to row below by `qAj^q` and then call @a/@b with proper count or I could visually selected rows then run `: normal @a`
+
+a
+b
+c
+
+wound turn into
+
+var a;
+var b;
+var c;
 ### Exercises
 
 #### Remove quotes around text
