@@ -233,3 +233,17 @@ Press `p`` to enter this state.
 
 * `ctrl-j` and `ctrl-k` scroll through kill ring
 * `p` to paste under or `P` before cursor
+## Substituting
+
+s first line
+%s all lines
+
+#### Flags
+
+`c` confirmation
+`g` global, apply to all cases in a row
+`n` tally
+`e` supres error messages
+`&` apply previously used flags
+ fs
+
