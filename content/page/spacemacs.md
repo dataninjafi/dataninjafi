@@ -12,9 +12,10 @@ title: Spacemacs
 Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles between computers and have your own setup up and running just syncing this folder.
 
 
-
-
 ## Vim Bindings
+
+### Search
+
 
 ### Movements
 
@@ -64,16 +65,18 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 
 #### Replacing through document
 
-`:%s/^/!/g` to insert ! character on beginning of all lines. Dropping last g will do it to first match. gs would prompt every change
+`:%s/^/!/g` to insert ! character on beginning of all lines. Dropping % would apply this to one line. Dropping last g will do it to first match. gs would prompt every change
 
 #### Doing same thing for visual selection
 
-`:'<,'>normal I!ENTER`
+`:'<,'>normal I!ENTER` 
 
 
 ### Indenting
 
 `gg=G` autoindents whole file
+`>>` indent right
+`<<` indent left
 
 ### operators
 
@@ -82,10 +85,11 @@ Set your dotfile to `~/spacemacs.d/`-folder. You can syncronize your dotfiles be
 * c change
     * `c` change end of line
     * `cw` change rest of word
-    * `ci[w/./)]` change in word/./)
+    * `ciw` change in word
+    * `caw` change also outside the word
+    *  
 * `p` paste after cursor
-* `p` paste before cursor
-* `
+* `P` paste before cursor
 
 ### Objects
 
@@ -139,9 +143,55 @@ var a;
 var b;
 var c;
 
+
 ### Args???
 
+#### code folding
 
+`zm` fold
+`zr` open folded
+
+
+### Very magic and no magic
+
+### Substituting
+
+s first line %s all lines
+
+#### Flags
+
+`c` confirmation
+`g` global, apply to all cases in a row
+`n` tally
+`e` supres error messages
+`&` apply previously used flags
+ fs
+
+### Sorting
+
+`vip:sort`
+
+ö
+ä
+l
+c
+b
+a 
+
+and you get
+
+a 
+b
+c
+l
+ä
+ö
+
+to reverse it use 
+
+* `sort!`
+* `sort u` for removing duplicate rows
+* `sort n` sort using numerical sort
 
 ### Exercises
 
@@ -149,15 +199,17 @@ var c;
 
 "Remove quotes around this text" is `di"P2x`
 
-#### Remove parentheses 
+or shortly `ds"`
 
-10
-100
+### Remove parentheses 
+
 (Remove parentheses around this text) is `di)h2x`
+
+or shortly `ds"`
 
 #### Yank 2 first sentences
 
-Yank first sentence. And second. But not the third. is `y2f.`
+Yank first sentence. And second. But not the third. is `y2f.` or `y2)`
 
 #### Make a increasing list
 
@@ -182,12 +234,144 @@ Result is:
 ( )	beginning of previous, next sentence
 
 
-#### Code folding
+#### code folding
 
 `zm` fold
 `zr` open folded
 
-## Moving between buffers
+## Moving in/between files/buffers/files/projects
+
+search: use `/<Enter>` and then `n` or `p`
+SPC TAB previous buffer
+SPC j w jumps to word
+SPC ` moves backward 
+SPC p p find a project
+SPC p f find a file in this project
+
+* SPC b
+** . 
+** b
+** C-z actions
+** B IBuffer
+** d delete buffer
+** P copy from clipboard to buffer
+** Y copy to clipboard
+
+* SPC f
+** c copy buffer to a new file name
+** C convert line endings
+** s save buffer
+** D delete file and buffer
+** f find file
+** j jump to directory of file
+** S save all buffers
+** e d go to .spacemacs
+** e f .spacemacs faq
+** e R apply changes in dotfiles
+** e v show and copy spacemacs version
+** e h HELP
+
+
+## Org mode
+
+When org installed you can find a ton under `SPC m`
+
+* M arrows ... moves item up, down, demote, promote
+* M RET ... inserts a new heading/list item
+* S arrows ... switch between todo and priority states
+* SPC m - ... changes list style
+* SPC : ... tags
+* SPC , ... ctrl c ctrl c
+* C-c C-z C-a Archive a entry
+* C-c C-z C-a Archive a subtree
+* C-u C-c C-x C-s Serch all done under subtree and archive with prompt
+* col view and archive property:https://www.youtube.com/watch?v=BeAtCVZpHCg&index=20&list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE
+* Tables
+| Nimi            | titteli              | työpaikka |
+|-----------------|----------------------|-----------|
+| Risto Kaartinen | työelämäasiantuntija | Keva      |
+| Joku muu        | johtaja              | Kela      |
+|                 |                      |           |
+* Source code
+
+#+BEGIN_SRC R
+mtcars
+
+#+END_SRC
+
+
+## Insert stuff
+
+
+* SPC i
+** e emoji
+** j, J, k, K insert empty line or [ SPC or space ]
+** l lorem ipsum text
+** s Helm yasnippets
+
+## Ess layer
+
+* M {/} move up and down in repl
+* C-c C-c break
+* M n 1 1
+
+## Magit layer
+
+* . vcs microstate
+* b git blame microstate
+* c commit
+* C checkout
+* d diff
+* D diff head
+*
+* S/U (un)stage whole file
+* t time machine microstate
+
+`SPC g s` magit status:
+c commit
+F pull
+p push
+ll log
+r rebase
+b branch
+
+
+## Undo/redo
+
+SPC a u undo tree
+u undo
+Ctrl ? redo
+
+## File system
+
+`SPC a r` to ranger
+`SPC a d` to dired
+
+## Inser a emoji
+
+`SPC a E`
+
+## Commenting
+
+SPC ; comment operator (visual selection, a p paragraph, i i idented text)
+
+* SPC c
+** l comment line
+** l comment line invert
+** p comment paragraph
+** P comment paragraph invert
+** t comment to line
+** T comment to line invert
+
+## Color map
+
+SPC C l
+
+## Unsorted
+
+SPC ! shell command
+SPC ? a list of helm session keybindings
+SPC F1 Fuzzy search of emacs stuff
 
 ## Calculator
 
@@ -239,44 +423,9 @@ Press `p`` to enter this state.
 * `ctrl-j` and `ctrl-k` scroll through kill ring
 * `p` to paste under or `P` before cursor
 
-## Very magic and no magic
 
-## Substituting
-
-s first line %s all lines
-
-#### Flags
-
-`c` confirmation
-`g` global, apply to all cases in a row
-`n` tally
-`e` supres error messages
-`&` apply previously used flags
- fs
-
-## Sorting
-
-`vip:sort`
-
-ö
-ä
-l
-c
-b
-a 
-
-and you get
-
-a 
-b
-c
-l
-ä
-ö
-
-to reverse it use 
-
-* `sort!`
-* `sort u` for removing duplicate rows
-* `sort n` sort using numerical sort
-
+* Dired mode : 1. Copy file : `C`
+               2. Delete the file : `D`
+               3. Rename the file : `R`
+               4. Create a new directory : `+`
+               5. Reload directory listing : `g`
