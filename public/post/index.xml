@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data Ninja</title>
-    <link>/post/</link>
+    <link>https://dataninja.fi/post/</link>
     <description>Recent content in Posts on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Risto Kaartinen</copyright>
     <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dataninja.fi/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing</title>
-      <link>/2020/06/28/testing/</link>
+      <link>https://dataninja.fi/2020/06/28/testing/</link>
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/28/testing/</guid>
+      <guid>https://dataninja.fi/2020/06/28/testing/</guid>
       <description>This is a test.</description>
     </item>
     
     <item>
       <title>Transform data with dplyr</title>
-      <link>/2020/06/28/transform-data-with-dplyr/</link>
+      <link>https://dataninja.fi/2020/06/28/transform-data-with-dplyr/</link>
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/06/28/transform-data-with-dplyr/</guid>
+      <guid>https://dataninja.fi/2020/06/28/transform-data-with-dplyr/</guid>
       <description>Here we go trough some.</description>
     </item>
     
     <item>
       <title>Hello world!</title>
-      <link>/2017/07/06/hello-world/</link>
+      <link>https://dataninja.fi/2017/07/06/hello-world/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/07/06/hello-world/</guid>
+      <guid>https://dataninja.fi/2017/07/06/hello-world/</guid>
       <description>Site is up and running! Site is build with r-package Blogdown. Enjoy!</description>
     </item>
     
