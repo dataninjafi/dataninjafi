@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Testing</title>
+      <link>https://dataninja.fi/2020/06/28/testing/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataninja.fi/2020/06/28/testing/</guid>
+      <description>This is a test.</description>
+    </item>
+    
+    <item>
       <title>Transform data with dplyr</title>
       <link>https://dataninja.fi/2020/06/28/transform-data-with-dplyr/</link>
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
