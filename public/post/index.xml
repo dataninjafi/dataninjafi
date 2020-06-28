@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data Ninja</title>
@@ -6,19 +6,26 @@
     <description>Recent content in Posts on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>risto.kaartinen@gmail.com (Risto Kaartinen)</managingEditor>
-    <webMaster>risto.kaartinen@gmail.com (Risto Kaartinen)</webMaster>
     <copyright>&amp;copy; 2017 Risto Kaartinen</copyright>
-    <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Transform data with dplyr</title>
+      <link>/2020/06/28/transform-data-with-dplyr/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/28/transform-data-with-dplyr/</guid>
+      <description>Here we go trough some</description>
+    </item>
+    
+    <item>
       <title>Hello world!</title>
       <link>/2017/07/06/hello-world/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
-      <author>risto.kaartinen@gmail.com (Risto Kaartinen)</author>
+      
       <guid>/2017/07/06/hello-world/</guid>
       <description>Site is up and running! Site is build with r-package Blogdown. Enjoy!</description>
     </item>

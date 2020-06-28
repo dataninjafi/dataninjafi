@@ -15,24 +15,13 @@ year = "2017"
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-[[menu.main]]
-    name = "Cheatsheet"
-    url = "/cheatsheet/"
-[[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
-[[menu.main]]
     name = "Twitter"
     url = "https://twitter.com/dataninjafi"
 
 [author]
     name = "Risto Kaartinen"
     twitter = "dataninjafi"
-    email = "risto.kaartinen@gmail.com"
     linkedin = "ristokaartinen"
-
 
 [params]
     subtitle = "Data Ninja fights messy data"

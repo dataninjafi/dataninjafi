@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Data Ninja</title>
@@ -6,12 +6,20 @@
     <description>Recent content in Categories on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>risto.kaartinen@gmail.com (Risto Kaartinen)</managingEditor>
-    <webMaster>risto.kaartinen@gmail.com (Risto Kaartinen)</webMaster>
     <copyright>&amp;copy; 2017 Risto Kaartinen</copyright>
+    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>transform</title>
+      <link>/categories/transform/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/transform/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
