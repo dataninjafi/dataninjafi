@@ -3,38 +3,60 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://dataninja.fi/categories/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/tags/dplyr/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/tags/etl/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/post/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/tags/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/categories/transform/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/2020/06/28/transform-data-with-dplyr/</loc>
+    <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dataninja.fi/2017/07/06/hello-world/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2017/07/06/hello-world/</loc>
-    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+    <loc>https://dataninja.fi/page/about/</loc>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+    <loc>https://dataninja.fi/page/</loc>
   </url>
   
   <url>
-    <loc>/page/about/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/page/</loc>
-  </url>
-  
-  <url>
-    <loc>/page/spacemacs/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>https://dataninja.fi/page/spacemacs/</loc>
   </url>
   
 </urlset>
