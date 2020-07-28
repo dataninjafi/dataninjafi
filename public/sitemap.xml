@@ -3,38 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://www.dataninja.fi/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2017/07/06/hello-world/</loc>
+    <loc>https://www.dataninja.fi/2017/07/06/hello-world/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://www.dataninja.fi/post/</loc>
     <lastmod>2017-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/page/about/</loc>
+    <loc>https://www.dataninja.fi/categories/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/page/</loc>
-  </url>
-  
-  <url>
-    <loc>/page/spacemacs/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>https://www.dataninja.fi/tags/</loc>
   </url>
   
 </urlset>
