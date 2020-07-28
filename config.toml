@@ -1,6 +1,5 @@
-baseurl = "https://dataninja.fi"
+baseurl = "https://www.dataninja.fi"
 relativeurls = true
-copyright = "&copy; 2017 Risto Kaartinen"
 languageCode = "en-us"
 title = "Data Ninja"
 enableEmoji = true
@@ -16,11 +15,11 @@ year = "2017"
 
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/dataninjafi"
+    url = "https://twitter.com/dataninja_fi"
 
 [author]
     name = "Risto Kaartinen"
-    twitter = "dataninjafi"
+    twitter = "dataninja_fi"
     linkedin = "ristokaartinen"
 
 [params]
