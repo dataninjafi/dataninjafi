@@ -3,7 +3,7 @@ title: Finnish MPs on Twitter part 1
 date: '2020-07-30'
 slug: finnish-mps-on-twitter-part1
 categories:
-  - '#twitter #nlp'
+  - 'twitter nlp'
 tags: []
 type: ''
 subtitle: ''
