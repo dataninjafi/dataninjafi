@@ -1,0 +1,173 @@
+---
+title: Finnish MPs on Twitter part 1
+date: '2020-07-30'
+slug: finnish-mps-on-twitter-part1
+categories:
+  - '#twitter #nlp'
+tags: []
+type: ''
+subtitle: ''
+image: ''
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish). 
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1287726197607149568')
+```
+
+
+Here is my take on analysis of tweets and retweets of Finnish MPs. Goals for this project:
+
+* Automate hourly collection of tweet data produced by MPs.
+* Describe how Finnish MPs tweet based on their background variables. At least by party, age, gender and mp experience years.
+* Sentiment analysis of the language used in the tweets. 
+* Update constantly open source raw data and publish weekly a report on language used.
+
+Of course all this done when 👶 allows me to code. 
+
+## Current Finnish MPs
+
+First I scrape the listing of current MPs and their backgrounds from Wikipedia https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista. Package `rvest` is used here.
+
+```{r message=FALSE}
+library(rvest)
+library(tidyverse)
+library(janitor)
+url <- "https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista"
+
+wikipedia <- read_html(url)
+
+seniority <- function(period) {
+  start <- period %>%
+    str_extract("\\d{4}(?=–)")
+  end <- period %>%
+    str_extract("(?<=–)\\d{4}") 
+  if(is.na(end)) return(1)
+  start:end %>% 
+    length()
+
+}
+
+wikipedia <- wikipedia %>% 
+  html_nodes("table") %>% 
+  .[[2]] %>% 
+  html_table() %>% 
+  clean_names %>% 
+  filter(puolue == "") %>% 
+  mutate(party = str_remove(puolue_2, "\\[.*\\]")) %>% 
+  select(-puolue_2,
+         -puolue,
+         xp_in_years = kansanedustajana) %>% 
+  mutate(xp_in_years = str_split(xp_in_years, ", ")) %>% 
+  unnest(xp_in_years) %>% 
+  rowwise() %>% 
+  mutate(xp_in_years = seniority(xp_in_years)) %>% 
+  group_by(nimi) %>% 
+  mutate(xp_in_years = sum(xp_in_years)) %>% 
+  ungroup() %>% 
+  distinct %>% 
+  mutate(join_nimi = nimi %>% 
+           str_to_lower %>% 
+           str_remove(" |\\t|\\s") %>% 
+           stringi::stri_trans_general("Latin-ASCII")) %>% 
+  rename(electoral_district = vaalipiiri,
+         mp_name = nimi)
+```
+
+## Current Tweeting Finnish MPs
+
+I was thankfully notified that Finnish Parliament maintains a list of the MPs who are on Twitter.
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1287781573308420096')
+```
+
+Lets start collecting all accounts from that list with `rtweet` package.
+
+```{r message=FALSE}
+library(rtweet)
+
+twiittaavat_kansanedustajat <- lists_members("203337069") %>% 
+  select(matches("_id|name|_count$|at$"))
+```
+
+Some MP Twitter account names have nicknames, emojis, Arabic and typos and therefore combining of the Twitter and Wikipedia needs a small manual mapping for some MP names.
+
+```{r message=FALSE}
+twiittaavat_kansanedustajat <- twiittaavat_kansanedustajat %>%
+  mutate(name = case_when(
+    str_detect(name, "Harkimo") ~ "Harry Harkimo",
+    str_detect(name, "Ari Torniainen") ~ "Ari Torniainen",
+    str_detect(name, "Taee") ~ "Hussein al-Taee",
+    str_detect(name, "Eeva-Johanna Elorant") ~ "Eeva-Johanna Eloranta",
+    str_detect(name, "Niina Malm") ~ "Niina Malm",
+    str_detect(name, "Johanna Ojala") ~ "Johanna Ojala-Niemelä",
+    str_detect(name, "Petelius") ~ "Pirkka-Pekka Petelius",
+    str_detect(name, "Mäkisalo-R") ~ "Merja Mäkisalo-Ropponen",
+    TRUE ~ name),
+    join_nimi = name %>% 
+      str_to_lower %>% 
+      str_remove(" |\\t|\\s") %>% 
+      stringi::stri_trans_general("Latin-ASCII")) %>%
+  rename(twitter_name = name) %>% 
+  left_join(wikipedia) %>% 
+  select(-join_nimi)
+```
+
+And voila. Here we have tweeting MPs, their twitter metadata, party affiliation, MP experience in years and electoral district.
+
+```{r echo=FALSE}
+glimpse(twiittaavat_kansanedustajat) 
+```
+## Collect Status dataset
+
+Median MP has ~1800 statuses. Status is a tweet or a retweet.  Twitter API allows collecting last 3200 status messages. That is an amount that 60 percent of MPs have during their whole history. 
+
+```{r}
+twiittaavat_kansanedustajat %>% 
+  ggplot() + aes(statuses_count) + geom_density() + geom_vline(xintercept = median(twiittaavat_kansanedustajat$statuses_count))
+```
+
+Collecting maximum of 3200 statuses per MP sums to total of 310 000 tweets.
+
+```{r echo=FALSE}
+
+# statuses <- twiittaavat_kansanedustajat$user_id %>% 
+#   map(function(x){
+#     gc()
+#     Sys.sleep(7)
+#     get_timeline(x, n = 3200)
+#   })
+# 
+
+# statuses <- statuses %>%
+#   bind_rows()
+# 
+# statuses %>% 
+#   saveRDS("data/statuses.rds")
+
+statuses <- readRDS("data/statuses.rds")
+
+glimpse(statuses)
+```
+
+MPs produce weekly thousands of statuses. Sometimes over 3000 statuses.
+
+```{r}
+statuses %>% 
+  mutate(year = lubridate::year(created_at),
+         week = lubridate::week(created_at)) %>%
+  filter(year > 2018) %>% 
+  count(year, week, name = "weekly_statuses") %>% 
+  ggplot + aes(weekly_statuses) + geom_density()
+```
+
+
+## Next up
+
+Next time I will classify statuses by their sentiments.

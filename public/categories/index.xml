@@ -2,13 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Data Ninja</title>
-    <link>https://www.dataninja.fi/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 30 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.dataninja.fi/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#twitter #nlp</title>
+      <link>/categories/#twitter-%23nlp/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/#twitter-%23nlp/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

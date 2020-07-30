@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Data Ninja</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Data Ninja</description>
+    <title>#twitter #nlp on Data Ninja</title>
+    <link>/categories/#twitter-%23nlp/</link>
+    <description>Recent content in #twitter #nlp on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/#twitter-%23nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@ Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailu
 Yritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.
 Kokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?
 &amp;mdash; Tuomo Kondie (Kondien Fed&amp;#39;a) (@TuomoKondie) July 27, 2020  Here is my take on analysis of tweets and retweets of Finnish MPs.</description>
-    </item>
-    
-    <item>
-      <title>Hello world!</title>
-      <link>/2017/07/06/hello-world/</link>
-      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/07/06/hello-world/</guid>
-      <description>Site is up and running! Site is build with r-package Blogdown. Enjoy!</description>
     </item>
     
   </channel>

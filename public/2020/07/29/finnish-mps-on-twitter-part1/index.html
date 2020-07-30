@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Finnish MPs on Twitter part 1 - Data Ninja</title>
+  <meta name="description" content="A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).
+Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailun kansanedustajien kielenkäytöstä.
+Yritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.
+Kokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?
+&mdash; Tuomo Kondie (Kondien Fed&#39;a) (@TuomoKondie) July 27, 2020  Here is my take on analysis of tweets and retweets of Finnish MPs.">
+  <meta name="author" content="Risto Kaartinen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Data Ninja",
+    
+    "url": "\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "\/2020\/07\/29\/finnish-mps-on-twitter-part1\/",
+          "name": "Finnish m ps on twitter part 1"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Risto Kaartinen"
+  },
+  "headline": "Finnish MPs on Twitter part 1",
+  "description" : "A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).\nPoliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailun kansanedustajien kielenkäytöstä.\nYritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.\nKokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?\n\u0026mdash; Tuomo Kondie (Kondien Fed\u0026#39;a) (@TuomoKondie) July 27, 2020  Here is my take on analysis of tweets and retweets of Finnish MPs.",
+  "inLanguage" : "en",
+  "wordCount":  1417 ,
+  "datePublished" : "2020-07-29T00:00:00",
+  "dateModified" : "2020-07-29T00:00:00",
+  "image" : "\/img\/dataninja.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "\/2020\/07\/29\/finnish-mps-on-twitter-part1\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "\/img\/dataninja.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Finnish MPs on Twitter part 1" />
+<meta property="og:description" content="A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).
+Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailun kansanedustajien kielenkäytöstä.
+Yritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.
+Kokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?
+&mdash; Tuomo Kondie (Kondien Fed&#39;a) (@TuomoKondie) July 27, 2020  Here is my take on analysis of tweets and retweets of Finnish MPs.">
+<meta property="og:image" content="/img/dataninja.png" />
+<meta property="og:url" content="/2020/07/29/finnish-mps-on-twitter-part1/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Data Ninja" />
+
+  <meta name="twitter:title" content="Finnish MPs on Twitter part 1" />
+  <meta name="twitter:description" content="A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).
+Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä …">
+  <meta name="twitter:image" content="/img/dataninja.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dataninja_fi" />
+  <meta name="twitter:creator" content="@dataninja_fi" />
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Data Ninja"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="../../../../css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="../../../../css/syntax.css" /><link rel="stylesheet" href="../../../../css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-101946229-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Data Ninja</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Twitter" href="https://twitter.com/dataninja_fi">Twitter</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Data Ninja" href="../../../../">
+            <img class="avatar-img" src="../../../../img/dataninja.png" alt="Data Ninja" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Finnish MPs on Twitter part 1</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 29, 2020
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Risto Kaartinen
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+
+<p>A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).</p>
+<blockquote class="twitter-tweet"><p lang="fi" dir="ltr">Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailun kansanedustajien kielenkäytöstä.<br><br>Yritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.<br><br>Kokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?</p>&mdash; Tuomo Kondie (Kondien Fed&#39;a) (@TuomoKondie) <a href="https://twitter.com/TuomoKondie/status/1287726197607149568?ref_src=twsrc%5Etfw">July 27, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Here is my take on analysis of tweets and retweets of Finnish MPs. Goals for this project:</p>
+<ul>
+<li>Automate hourly collection of tweet data produced by MPs.</li>
+<li>Describe how Finnish MPs tweet based on their background variables. At least by party, age, gender and mp experience years.</li>
+<li>Sentiment analysis of the language used in the tweets.</li>
+<li>Update constantly open source raw data and publish weekly a report on language used.</li>
+</ul>
+<p>Of course all this done when 👶 allows me to code.</p>
+<div id="current-finnish-mps" class="section level2">
+<h2>Current Finnish MPs</h2>
+<p>First I scrape the listing of current MPs and their backgrounds from Wikipedia <a href="https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista" class="uri">https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista</a>. Package <code>rvest</code> is used here.</p>
+<pre class="r"><code>library(rvest)
+library(tidyverse)
+library(janitor)
+url &lt;- &quot;https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista&quot;
+
+wikipedia &lt;- read_html(url)
+
+seniority &lt;- function(period) {
+  start &lt;- period %&gt;%
+    str_extract(&quot;\\d{4}(?=–)&quot;)
+  end &lt;- period %&gt;%
+    str_extract(&quot;(?&lt;=–)\\d{4}&quot;) 
+  if(is.na(end)) return(1)
+  start:end %&gt;% 
+    length()
+
+}
+
+wikipedia &lt;- wikipedia %&gt;% 
+  html_nodes(&quot;table&quot;) %&gt;% 
+  .[[2]] %&gt;% 
+  html_table() %&gt;% 
+  clean_names %&gt;% 
+  filter(puolue==&quot;&quot;) %&gt;% 
+  mutate(party = str_remove(puolue_2, &quot;\\[.*\\]&quot;)) %&gt;% 
+  select(-puolue_2,
+         -puolue,
+         xp_in_years = kansanedustajana) %&gt;% 
+  mutate(xp_in_years = str_split(xp_in_years, &quot;, &quot;)) %&gt;% 
+  unnest(xp_in_years) %&gt;% 
+  rowwise() %&gt;% 
+  mutate(xp_in_years = seniority(xp_in_years)) %&gt;% 
+  group_by(nimi) %&gt;% 
+  mutate(xp_in_years = sum(xp_in_years)) %&gt;% 
+  ungroup() %&gt;% 
+  distinct %&gt;% 
+  mutate(join_nimi = nimi %&gt;% 
+           str_to_lower %&gt;% 
+           str_remove(&quot; |\\t|\\s&quot;) %&gt;% 
+           stringi::stri_trans_general(&quot;Latin-ASCII&quot;)) %&gt;% 
+  rename(electoral_district = vaalipiiri,
+         mp_name = nimi)</code></pre>
+</div>
+<div id="current-tweeting-finnish-mps" class="section level2">
+<h2>Current Tweeting Finnish MPs</h2>
+<p>I was thankfully notified that Finnish Parliament maintains a list of the MPs who are on Twitter.</p>
+<blockquote class="twitter-tweet"><p lang="fi" dir="ltr">Luultavasti ajantasainen lista.<a href="https://t.co/LwkTy0VRpE">https://t.co/LwkTy0VRpE</a></p>&mdash; Ismo Peltonen 🌍🌏🌎🇺🇳🇪🇺🇫🇮 (@ipeltonen) <a href="https://twitter.com/ipeltonen/status/1287781573308420096?ref_src=twsrc%5Etfw">July 27, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>First I collect all accounts from that list with <code>rtweet</code> package.</p>
+<pre class="r"><code>library(rtweet)
+
+twiittaavat_kansanedustajat &lt;- lists_members(&quot;203337069&quot;) %&gt;% 
+  select(matches(&quot;_id|name|_count$|at$&quot;))</code></pre>
+<p>Some MP Twitter account names have nicknames, emojis, Arabic and typos and therefore combining of the Twitter and Wikipedia needs a small manual mapping for some MP names.</p>
+<pre class="r"><code>twiittaavat_kansanedustajat &lt;- twiittaavat_kansanedustajat %&gt;%
+  mutate(name = case_when(
+    str_detect(name, &quot;Harkimo&quot;) ~ &quot;Harry Harkimo&quot;,
+    str_detect(name, &quot;Ari Torniainen&quot;) ~ &quot;Ari Torniainen&quot;,
+    str_detect(name, &quot;Taee&quot;) ~ &quot;Hussein al-Taee&quot;,
+    str_detect(name, &quot;Eeva-Johanna Elorant&quot;) ~ &quot;Eeva-Johanna Eloranta&quot;,
+    str_detect(name, &quot;Niina Malm&quot;) ~ &quot;Niina Malm&quot;,
+    str_detect(name, &quot;Johanna Ojala&quot;) ~ &quot;Johanna Ojala-Niemelä&quot;,
+    str_detect(name, &quot;Petelius&quot;) ~ &quot;Pirkka-Pekka Petelius&quot;,
+    str_detect(name, &quot;Mäkisalo-R&quot;) ~ &quot;Merja Mäkisalo-Ropponen&quot;,
+    TRUE ~ name),
+    join_nimi = name %&gt;% 
+      str_to_lower %&gt;% 
+      str_remove(&quot; |\\t|\\s&quot;) %&gt;% 
+      stringi::stri_trans_general(&quot;Latin-ASCII&quot;)) %&gt;%
+  rename(twitter_name = name) %&gt;% 
+  left_join(wikipedia) %&gt;% 
+  select(-join_nimi)</code></pre>
+<p>And voila. Here we have tweeting MPs, their twitter metadata, party affiliation, MP experience in years and electoral district.</p>
+<pre class="r"><code>glimpse(twiittaavat_kansanedustajat) </code></pre>
+<pre><code>## Observations: 178
+## Variables: 13
+## $ user_id            &lt;chr&gt; &quot;1165587258050830337&quot;, &quot;1136164451470757889&quot;,…
+## $ twitter_name       &lt;chr&gt; &quot;Kari Tolvanen&quot;, &quot;Thomas Blomqvist&quot;, &quot;Erkki T…
+## $ screen_name        &lt;chr&gt; &quot;KariTolvanen3&quot;, &quot;ThomasBlomqvis7&quot;, &quot;Tuomioja…
+## $ followers_count    &lt;int&gt; 139, 2157, 482, 2189, 1211, 200, 170, 383, 46…
+## $ friends_count      &lt;int&gt; 69, 327, 0, 138, 663, 1, 7, 234, 152, 72, 255…
+## $ listed_count       &lt;int&gt; 2, 27, 7, 17, 19, 10, 12, 17, 3, 17, 16, 15, …
+## $ created_at         &lt;dttm&gt; 2019-08-25 11:30:58, 2019-06-05 06:54:48, 20…
+## $ favourites_count   &lt;int&gt; 0, 392, 9, 456, 5326, 2, 0, 186, 7, 0, 558, 5…
+## $ statuses_count     &lt;int&gt; 3, 214, 76, 179, 1939, 4, 0, 95, 6, 26, 136, …
+## $ mp_name            &lt;chr&gt; &quot;Kari Tolvanen&quot;, &quot;Thomas Blomqvist&quot;, &quot;Erkki T…
+## $ electoral_district &lt;chr&gt; &quot;Uusimaa&quot;, &quot;Uusimaa&quot;, &quot;Helsinki&quot;, &quot;Kaakkois-S…
+## $ xp_in_years        &lt;dbl&gt; 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ party              &lt;chr&gt; &quot;Kokoomus&quot;, &quot;RKP&quot;, &quot;Sosiaalidemokraatit&quot;, &quot;Si…</code></pre>
+</div>
+<div id="collect-status-dataset" class="section level2">
+<h2>Collect Status dataset</h2>
+<p>Median MP has ~1800 statuses. Status is a tweet or a retweet. Twitter API allows colleting last 3200 status messages. That is an amount that 60 percent of MPs have during their whole history.</p>
+<pre class="r"><code>twiittaavat_kansanedustajat %&gt;% 
+  ggplot() + aes(statuses_count) + geom_density() + geom_vline(xintercept = median(twiittaavat_kansanedustajat$statuses_count))</code></pre>
+<p><img src="../../../../post/2020-07-28-finnish-mps-on-twitter_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>statuses &lt;- get_timelines(twiittaavat_kansanedustajat$user_id, n = 3200)</code></pre>
+<pre><code>## Warning: rate limit exceeded. 5.01 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 5.01 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 5.01 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 5 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 5 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 5 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 5 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.99 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.99 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.99 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.98 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.98 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.98 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.98 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.97 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.97 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.97 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.96 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.96 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.96 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.96 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.95 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.95 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.95 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.94 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.94 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.94 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.93 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.93 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.93 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.93 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.92 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.92 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.92 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.91 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.91 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.91 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.91 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.9 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.9 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.9 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.89 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.89 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.89 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.89 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.88 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.88 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.88 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.87 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.87 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.87 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.86 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.86 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.86 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.86 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.85 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.85 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.85 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.84 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.84 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.84 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.84 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.83 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.83 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.83 mins until rate limit resets.</code></pre>
+<pre><code>## Warning: rate limit exceeded. 4.82 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.82 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.82 mins until rate limit resets.
+
+## Warning: rate limit exceeded. 4.82 mins until rate limit resets.</code></pre>
+</div>
+<div id="next-up" class="section level2">
+<h2>Next up</h2>
+<p>Next time I will try to classify statuses by their sentiments.</p>
+</div>
+
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="../../../../2017/07/06/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello world!">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://twitter.com/dataninja_fi" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/ristokaartinen" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Risto Kaartinen
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="../../../../">Data Ninja</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="../../../../js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="../../../../js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

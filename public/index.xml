@@ -2,21 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Ninja</title>
-    <link>https://www.dataninja.fi/</link>
+    <link>/</link>
     <description>Recent content on Data Ninja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.dataninja.fi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Finnish MPs on Twitter part 1</title>
+      <link>/2020/07/30/finnish-mps-on-twitter-part1/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/30/finnish-mps-on-twitter-part1/</guid>
+      <description>A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).
+Poliitikkojen somekäytös on puhuttanut. Siksi ajattelin tehdä pienen vertailun kansanedustajien kielenkäytöstä.
+Yritin ensin katsoa viime viikkoa mutta se törkyn määrä oli liikaa.
+Kokeillaan siis lyhyempää väliä. Mitä kansanedustajat tviittaavat yhden ainoan sunnuntain aikana?
+&amp;mdash; Tuomo Kondie (Kondien Fed&amp;#39;a) (@TuomoKondie) July 27, 2020  Here is my take on analysis of tweets and retweets of Finnish MPs.</description>
+    </item>
+    
+    <item>
       <title>Hello world!</title>
-      <link>https://www.dataninja.fi/2017/07/06/hello-world/</link>
+      <link>/2017/07/06/hello-world/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://www.dataninja.fi/2017/07/06/hello-world/</guid>
+      <guid>/2017/07/06/hello-world/</guid>
       <description>Site is up and running! Site is build with r-package Blogdown. Enjoy!</description>
     </item>
     

@@ -24,9 +24,8 @@ year = "2017"
 
 [params]
     subtitle = "Data Ninja fights messy data"
-    logo = "img/dataninja2.png"
     description = "Data Ninja fights messy data"
-
+     logo = "img/dataninja.png"
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.11.0"
     highlightjsCDN = "//cdn.bootcss.com"
@@ -35,3 +34,5 @@ year = "2017"
 
     MathJaxCDN = "//cdn.bootcss.com"
     MathJaxVersion = "2.7.1"
+
+   
