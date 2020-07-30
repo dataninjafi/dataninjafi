@@ -1,0 +1,227 @@
+---
+title: Finnish MPs on Twitter part 1
+date: '2020-07-30'
+slug: finnish-mps-on-twitter-part1
+categories:
+  - 'twitter nlp'
+tags: []
+type: ''
+subtitle: ''
+image: ''
+---
+
+
+
+<p>A great qualitative analysis of language used by Finnish members of the parliament (MPs) on Twitter was made couple days ago (in Finnish).</p>
+{{% tweet "1287726197607149568" %}}
+<p>Here is my take on analysis of tweets and retweets of Finnish MPs. Goals for this project:</p>
+<ul>
+<li>Automate hourly collection of tweet data produced by MPs.</li>
+<li>Describe how Finnish MPs tweet based on their background variables. At least by party, age, gender and mp experience years.</li>
+<li>Sentiment analysis of the language used in the tweets.</li>
+<li>Update constantly open source raw data and publish weekly a report on language used.</li>
+</ul>
+<p>Of course all this done when 👶 allows me to code.</p>
+<div id="current-finnish-mps" class="section level2">
+<h2>Current Finnish MPs</h2>
+<p>First I scrape the listing of current MPs and their backgrounds from Wikipedia <a href="https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista" class="uri">https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista</a>. Package <code>rvest</code> is used here.</p>
+<pre class="r"><code>library(rvest)
+library(tidyverse)
+library(janitor)
+url &lt;- &quot;https://fi.wikipedia.org/wiki/Luettelo_vaalikauden_2019%E2%80%932023_kansanedustajista&quot;
+
+wikipedia &lt;- read_html(url)
+
+seniority &lt;- function(period) {
+  start &lt;- period %&gt;%
+    str_extract(&quot;\\d{4}(?=–)&quot;)
+  end &lt;- period %&gt;%
+    str_extract(&quot;(?&lt;=–)\\d{4}&quot;) 
+  if(is.na(end)) return(1)
+  start:end %&gt;% 
+    length()
+
+}
+
+wikipedia &lt;- wikipedia %&gt;% 
+  html_nodes(&quot;table&quot;) %&gt;% 
+  .[[2]] %&gt;% 
+  html_table() %&gt;% 
+  clean_names %&gt;% 
+  filter(puolue == &quot;&quot;) %&gt;% 
+  mutate(party = str_remove(puolue_2, &quot;\\[.*\\]&quot;)) %&gt;% 
+  select(-puolue_2,
+         -puolue,
+         xp_in_years = kansanedustajana) %&gt;% 
+  mutate(xp_in_years = str_split(xp_in_years, &quot;, &quot;)) %&gt;% 
+  unnest(xp_in_years) %&gt;% 
+  rowwise() %&gt;% 
+  mutate(xp_in_years = seniority(xp_in_years)) %&gt;% 
+  group_by(nimi) %&gt;% 
+  mutate(xp_in_years = sum(xp_in_years)) %&gt;% 
+  ungroup() %&gt;% 
+  distinct %&gt;% 
+  mutate(join_nimi = nimi %&gt;% 
+           str_to_lower %&gt;% 
+           str_remove(&quot; |\\t|\\s&quot;) %&gt;% 
+           stringi::stri_trans_general(&quot;Latin-ASCII&quot;)) %&gt;% 
+  rename(electoral_district = vaalipiiri,
+         mp_name = nimi)</code></pre>
+</div>
+<div id="current-tweeting-finnish-mps" class="section level2">
+<h2>Current Tweeting Finnish MPs</h2>
+<p>I was thankfully notified that Finnish Parliament maintains a list of the MPs who are on Twitter.</p>
+{{% tweet "1287781573308420096" %}}
+<p>Lets start collecting all accounts from that list with <code>rtweet</code> package.</p>
+<pre class="r"><code>library(rtweet)
+
+twiittaavat_kansanedustajat &lt;- lists_members(&quot;203337069&quot;) %&gt;% 
+  select(matches(&quot;_id|name|_count$|at$&quot;))</code></pre>
+<p>Some MP Twitter account names have nicknames, emojis, Arabic and typos and therefore combining of the Twitter and Wikipedia needs a small manual mapping for some MP names.</p>
+<pre class="r"><code>twiittaavat_kansanedustajat &lt;- twiittaavat_kansanedustajat %&gt;%
+  mutate(name = case_when(
+    str_detect(name, &quot;Harkimo&quot;) ~ &quot;Harry Harkimo&quot;,
+    str_detect(name, &quot;Ari Torniainen&quot;) ~ &quot;Ari Torniainen&quot;,
+    str_detect(name, &quot;Taee&quot;) ~ &quot;Hussein al-Taee&quot;,
+    str_detect(name, &quot;Eeva-Johanna Elorant&quot;) ~ &quot;Eeva-Johanna Eloranta&quot;,
+    str_detect(name, &quot;Niina Malm&quot;) ~ &quot;Niina Malm&quot;,
+    str_detect(name, &quot;Johanna Ojala&quot;) ~ &quot;Johanna Ojala-Niemelä&quot;,
+    str_detect(name, &quot;Petelius&quot;) ~ &quot;Pirkka-Pekka Petelius&quot;,
+    str_detect(name, &quot;Mäkisalo-R&quot;) ~ &quot;Merja Mäkisalo-Ropponen&quot;,
+    TRUE ~ name),
+    join_nimi = name %&gt;% 
+      str_to_lower %&gt;% 
+      str_remove(&quot; |\\t|\\s&quot;) %&gt;% 
+      stringi::stri_trans_general(&quot;Latin-ASCII&quot;)) %&gt;%
+  rename(twitter_name = name) %&gt;% 
+  left_join(wikipedia) %&gt;% 
+  select(-join_nimi)</code></pre>
+<p>And voila. Here we have tweeting MPs, their twitter metadata, party affiliation, MP experience in years and electoral district.</p>
+<pre><code>## Observations: 178
+## Variables: 13
+## $ user_id            &lt;chr&gt; &quot;1165587258050830337&quot;, &quot;1136164451470757889&quot;,…
+## $ twitter_name       &lt;chr&gt; &quot;Kari Tolvanen&quot;, &quot;Thomas Blomqvist&quot;, &quot;Erkki T…
+## $ screen_name        &lt;chr&gt; &quot;KariTolvanen3&quot;, &quot;ThomasBlomqvis7&quot;, &quot;Tuomioja…
+## $ followers_count    &lt;int&gt; 139, 2164, 483, 2187, 1211, 200, 170, 383, 46…
+## $ friends_count      &lt;int&gt; 69, 327, 0, 138, 662, 1, 7, 234, 152, 72, 255…
+## $ listed_count       &lt;int&gt; 2, 27, 7, 17, 19, 10, 12, 17, 3, 17, 16, 15, …
+## $ created_at         &lt;dttm&gt; 2019-08-25 11:30:58, 2019-06-05 06:54:48, 20…
+## $ favourites_count   &lt;int&gt; 0, 393, 9, 457, 5332, 2, 0, 186, 7, 0, 558, 5…
+## $ statuses_count     &lt;int&gt; 3, 214, 76, 179, 1939, 4, 0, 95, 6, 26, 136, …
+## $ mp_name            &lt;chr&gt; &quot;Kari Tolvanen&quot;, &quot;Thomas Blomqvist&quot;, &quot;Erkki T…
+## $ electoral_district &lt;chr&gt; &quot;Uusimaa&quot;, &quot;Uusimaa&quot;, &quot;Helsinki&quot;, &quot;Kaakkois-S…
+## $ xp_in_years        &lt;dbl&gt; 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ party              &lt;chr&gt; &quot;Kokoomus&quot;, &quot;RKP&quot;, &quot;Sosiaalidemokraatit&quot;, &quot;Si…</code></pre>
+</div>
+<div id="collect-status-dataset" class="section level2">
+<h2>Collect Status dataset</h2>
+<p>Median MP has ~1800 statuses. Status is a tweet or a retweet. Twitter API allows collecting last 3200 status messages. That is an amount that 60 percent of MPs have during their whole history.</p>
+<pre class="r"><code>twiittaavat_kansanedustajat %&gt;% 
+  ggplot() + aes(statuses_count) + geom_density() + geom_vline(xintercept = median(twiittaavat_kansanedustajat$statuses_count))</code></pre>
+<p><img src="/post/2020-07-28-finnish-mps-on-twitter_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Collecting maximum of 3200 statuses per MP sums to total of 310 000 tweets.</p>
+<pre><code>## Observations: 310,016
+## Variables: 90
+## $ user_id                 &lt;chr&gt; &quot;1165587258050830337&quot;, &quot;1165587258050830…
+## $ status_id               &lt;chr&gt; &quot;1166623189843218437&quot;, &quot;1166311314668568…
+## $ created_at              &lt;dttm&gt; 2019-08-28 08:06:57, 2019-08-27 11:27:4…
+## $ screen_name             &lt;chr&gt; &quot;KariTolvanen3&quot;, &quot;KariTolvanen3&quot;, &quot;KariT…
+## $ text                    &lt;chr&gt; &quot;@MarinSanna Eduskunta on hyväksynyt kev…
+## $ source                  &lt;chr&gt; &quot;Twitter Web App&quot;, &quot;Twitter Web Client&quot;,…
+## $ display_text_width      &lt;dbl&gt; 174, 228, 218, 251, 225, 140, 23, 139, 2…
+## $ reply_to_status_id      &lt;chr&gt; &quot;1166605912943071238&quot;, NA, &quot;116555749892…
+## $ reply_to_user_id        &lt;chr&gt; &quot;1086378912&quot;, NA, &quot;798095178&quot;, NA, NA, N…
+## $ reply_to_screen_name    &lt;chr&gt; &quot;MarinSanna&quot;, NA, &quot;MariaOhisalo&quot;, NA, NA…
+## $ is_quote                &lt;lgl&gt; FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, …
+## $ is_retweet              &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE,…
+## $ favorite_count          &lt;int&gt; 47, 3, 59, 181, 32, 0, 16, 0, 5, 0, 15, …
+## $ retweet_count           &lt;int&gt; 3, 0, 7, 34, 12, 20, 4, 2, 0, 522, 1, 1,…
+## $ quote_count             &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ reply_count             &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ hashtags                &lt;list&gt; [&lt;&quot;kevytautot&quot;, &quot;turvallisuus&quot;&gt;, NA, &lt;&quot;…
+## $ symbols                 &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ urls_url                &lt;list&gt; [NA, &quot;mtvgo.fi/Ilhjbs0&quot;, NA, &quot;twitter.c…
+## $ urls_t.co               &lt;list&gt; [NA, &quot;https://t.co/fenZElFucp&quot;, NA, &quot;ht…
+## $ urls_expanded_url       &lt;list&gt; [NA, &quot;https://mtvgo.fi/Ilhjbs0&quot;, NA, &quot;h…
+## $ media_url               &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ media_t.co              &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ media_expanded_url      &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ media_type              &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ ext_media_url           &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ ext_media_t.co          &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ ext_media_expanded_url  &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ ext_media_type          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ mentions_user_id        &lt;list&gt; [&quot;1086378912&quot;, &quot;1948704752&quot;, &quot;798095178…
+## $ mentions_screen_name    &lt;list&gt; [&quot;MarinSanna&quot;, &quot;MTVSuomi&quot;, &quot;MariaOhisal…
+## $ lang                    &lt;chr&gt; &quot;fi&quot;, &quot;fi&quot;, &quot;fi&quot;, &quot;fi&quot;, &quot;sv&quot;, &quot;sv&quot;, &quot;und…
+## $ quoted_status_id        &lt;chr&gt; NA, NA, NA, &quot;1287657695126925314&quot;, &quot;1287…
+## $ quoted_text             &lt;chr&gt; NA, NA, NA, &quot;Poland should not withdraw …
+## $ quoted_created_at       &lt;dttm&gt; NA, NA, NA, 2020-07-27 07:54:52, 2020-0…
+## $ quoted_source           &lt;chr&gt; NA, NA, NA, &quot;Twitter for iPhone&quot;, &quot;Twitt…
+## $ quoted_favorite_count   &lt;int&gt; NA, NA, NA, 44, 44, NA, NA, NA, NA, NA, …
+## $ quoted_retweet_count    &lt;int&gt; NA, NA, NA, 12, 12, NA, NA, NA, NA, NA, …
+## $ quoted_user_id          &lt;chr&gt; NA, NA, NA, &quot;1001024222787981312&quot;, &quot;1001…
+## $ quoted_screen_name      &lt;chr&gt; NA, NA, NA, &quot;FinlandCoE&quot;, &quot;FinlandCoE&quot;, …
+## $ quoted_name             &lt;chr&gt; NA, NA, NA, &quot;Finland in the Council of E…
+## $ quoted_followers_count  &lt;int&gt; NA, NA, NA, 1161, 1161, NA, NA, NA, NA, …
+## $ quoted_friends_count    &lt;int&gt; NA, NA, NA, 498, 498, NA, NA, NA, NA, NA…
+## $ quoted_statuses_count   &lt;int&gt; NA, NA, NA, 1041, 1041, NA, NA, NA, NA, …
+## $ quoted_location         &lt;chr&gt; NA, NA, NA, &quot;Strasbourg, France&quot;, &quot;Stras…
+## $ quoted_description      &lt;chr&gt; NA, NA, NA, &quot;Permanent Representation of…
+## $ quoted_verified         &lt;lgl&gt; NA, NA, NA, TRUE, TRUE, NA, NA, NA, NA, …
+## $ retweet_status_id       &lt;chr&gt; NA, NA, NA, NA, NA, &quot;1288009581378048000…
+## $ retweet_text            &lt;chr&gt; NA, NA, NA, NA, NA, &quot;GÓÐA ÓLAVSØKU, FØRO…
+## $ retweet_created_at      &lt;dttm&gt; NA, NA, NA, NA, NA, 2020-07-28 07:13:08…
+## $ retweet_source          &lt;chr&gt; NA, NA, NA, NA, NA, &quot;Falcon Social Media…
+## $ retweet_favorite_count  &lt;int&gt; NA, NA, NA, NA, NA, 45, NA, 4, NA, 1061,…
+## $ retweet_retweet_count   &lt;int&gt; NA, NA, NA, NA, NA, 20, NA, 2, NA, 522, …
+## $ retweet_user_id         &lt;chr&gt; NA, NA, NA, NA, NA, &quot;68352264&quot;, NA, &quot;201…
+## $ retweet_screen_name     &lt;chr&gt; NA, NA, NA, NA, NA, &quot;nordensk&quot;, NA, &quot;Fin…
+## $ retweet_name            &lt;chr&gt; NA, NA, NA, NA, NA, &quot;Nordisk Samarbejde&quot;…
+## $ retweet_followers_count &lt;int&gt; NA, NA, NA, NA, NA, 7389, NA, 11945, NA,…
+## $ retweet_friends_count   &lt;int&gt; NA, NA, NA, NA, NA, 2584, NA, 3851, NA, …
+## $ retweet_statuses_count  &lt;int&gt; NA, NA, NA, NA, NA, 13916, NA, 13805, NA…
+## $ retweet_location        &lt;chr&gt; NA, NA, NA, NA, NA, &quot;Norden&quot;, NA, &quot;Washi…
+## $ retweet_description     &lt;chr&gt; NA, NA, NA, NA, NA, &quot;Nordisk Råd og Nord…
+## $ retweet_verified        &lt;lgl&gt; NA, NA, NA, NA, NA, FALSE, NA, TRUE, NA,…
+## $ place_url               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ place_name              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ place_full_name         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ place_type              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ country                 &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ country_code            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ geo_coords              &lt;list&gt; [&lt;NA, NA&gt;, &lt;NA, NA&gt;, &lt;NA, NA&gt;, &lt;NA, NA&gt;…
+## $ coords_coords           &lt;list&gt; [&lt;NA, NA&gt;, &lt;NA, NA&gt;, &lt;NA, NA&gt;, &lt;NA, NA&gt;…
+## $ bbox_coords             &lt;list&gt; [&lt;NA, NA, NA, NA, NA, NA, NA, NA&gt;, &lt;NA,…
+## $ status_url              &lt;chr&gt; &quot;https://twitter.com/KariTolvanen3/statu…
+## $ name                    &lt;chr&gt; &quot;Kari Tolvanen&quot;, &quot;Kari Tolvanen&quot;, &quot;Kari …
+## $ location                &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;Raseborg, Finland&quot;, &quot;Rasebo…
+## $ description             &lt;chr&gt; &quot;Kansanedustaja, kaupunginvaltuutettu ja…
+## $ url                     &lt;chr&gt; NA, NA, NA, &quot;https://t.co/WzDb2OA8aI&quot;, &quot;…
+## $ protected               &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
+## $ followers_count         &lt;int&gt; 139, 139, 139, 2162, 2162, 2162, 2162, 2…
+## $ friends_count           &lt;int&gt; 69, 69, 69, 327, 327, 327, 327, 327, 327…
+## $ listed_count            &lt;int&gt; 2, 2, 2, 27, 27, 27, 27, 27, 27, 27, 27,…
+## $ statuses_count          &lt;int&gt; 3, 3, 3, 214, 214, 214, 214, 214, 214, 2…
+## $ favourites_count        &lt;int&gt; 0, 0, 0, 393, 393, 393, 393, 393, 393, 3…
+## $ account_created_at      &lt;dttm&gt; 2019-08-25 11:30:58, 2019-08-25 11:30:5…
+## $ verified                &lt;lgl&gt; FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, T…
+## $ profile_url             &lt;chr&gt; NA, NA, NA, &quot;https://t.co/WzDb2OA8aI&quot;, &quot;…
+## $ profile_expanded_url    &lt;chr&gt; NA, NA, NA, &quot;https://www.thomasblomqvist…
+## $ account_lang            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ profile_banner_url      &lt;chr&gt; NA, NA, NA, &quot;https://pbs.twimg.com/profi…
+## $ profile_background_url  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ profile_image_url       &lt;chr&gt; &quot;http://pbs.twimg.com/profile_images/116…</code></pre>
+<p>MPs produce weekly thousands of statuses. Sometimes over 3000 statuses.</p>
+<pre class="r"><code>statuses %&gt;% 
+  mutate(year = lubridate::year(created_at),
+         week = lubridate::week(created_at)) %&gt;%
+  filter(year &gt; 2018) %&gt;% 
+  count(year, week, name = &quot;weekly_statuses&quot;) %&gt;% 
+  ggplot + aes(weekly_statuses) + geom_density()</code></pre>
+<p><img src="/post/2020-07-28-finnish-mps-on-twitter_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="next-up" class="section level2">
+<h2>Next up</h2>
+<p>Next time I will classify statuses by their sentiments.</p>
+</div>
